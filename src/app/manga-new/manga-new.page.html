@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nouveau manga</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center" style="margin: 20px;">
+  <ion-label >Affiche</ion-label>
+  <ion-item style="margin-bottom: 20px;">
+    <ion-input type="text" [(ngModel)]="manga.image" class="ion-text-center"></ion-input>
+  </ion-item>
+  <ion-label>Titre</ion-label>
+  <ion-item style="margin-bottom: 20px;">
+    <ion-input type="text" [(ngModel)]="manga.name" class="ion-text-center"></ion-input>
+  </ion-item>
+  <ion-label>Mangaka</ion-label>
+  <ion-item style="margin-bottom: 20px;">
+    <ion-input type="text" [(ngModel)]="manga.mangaka" class="ion-text-center"></ion-input>
+  </ion-item>
+  <ion-label>Nombre de chapitres</ion-label>
+  <ion-item style="margin-bottom: 20px;">
+    <ion-input type="number" [(ngModel)]="manga.nmbrChap" class="ion-text-center"></ion-input>
+  </ion-item>
+    <ion-label>Nombre de volumes</ion-label>
+    <ion-item style="margin-bottom: 20px;">
+      <ion-input type="number" [(ngModel)]="manga.nmbrVolume" class="ion-text-center"></ion-input>
+    </ion-item>
+  <p class="text-center">
+    <ion-button (click)="add()">Enregistrer</ion-button>
+  </p>
+  </div>
+</ion-content>

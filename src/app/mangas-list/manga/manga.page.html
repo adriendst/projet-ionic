@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab/manga"></ion-back-button>
+    </ion-buttons>
+    <ion-title>manga</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!modif">
+    <ion-grid *ngIf="manga">
+      <ion-row>
+        <ion-col size="6">
+          <img [src]="manga.image">
+        </ion-col>
+        <ion-col size="6">
+          <ion-row>
+            <ion-col class="ion-text-end">
+              <ion-button (click)="onDelete(manga.id)" slot="">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <strong>Nom du manga</strong><br><br>
+              {{manga.name}} <br><br><br>
+              <strong>Mangaka</strong><br><br>
+              {{manga.mangaka}}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <br><br><br>
+          <strong>Nombre de volumes</strong><br><br>
+          {{manga.nmbrVolume}} <br><br><br>
+          <strong>Nombre de chapitres</strong><br><br>
+          {{manga.nmbrChap}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <br><br>
+          <ion-button (click)="changeModif()">Modifier le manga</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="modif && manga">
+    <ion-grid *ngIf="manga">
+      <ion-row>
+        <ion-col size="6">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <ion-label>Lien de l'mage</ion-label><br>
+          <ion-item>
+          <ion-input type="text" [(ngModel)]="manga.image"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-row>
+            <ion-col class="ion-text-end">
+              <ion-button disabled="true" (click)="onDelete(manga.id)" slot="">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label>Nom du manga</ion-label><br>
+              <ion-item>
+              <ion-input type="text" [(ngModel)]="manga.name"></ion-input>
+              </ion-item>
+              <br>
+              <ion-label>Mangaka</ion-label><br>
+              <ion-item>
+              <ion-input type="text" [(ngModel)]="manga.mangaka"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <br><br>
+          <ion-label>Nombre de volumes</ion-label><br>
+          <ion-item>
+          <ion-input type="number" [(ngModel)]="manga.nmbrVolume" class="ion-text-center"></ion-input>
+          </ion-item><br>
+          <ion-label>Nombre de chapitres</ion-label><br>
+          <ion-item>
+          <ion-input type="number" [(ngModel)]="manga.nmbrChap" class="ion-text-center"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <br><br><br>
+          <ion-button (click)="onModif()">Enregistrer les modifications</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
